@@ -1,0 +1,51 @@
+.header {
+  background: #3B3D4D;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+
+  &__logo {
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+}
+
+.search {
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__terms {
+    background: #FFFFFF;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    border: 0;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: none;
+    color: #999999;
+    line-height: 23px;
+    height: 50px;
+    width: 300px;
+    padding: 0;
+    padding: 0 55px 0 20px;
+  }
+
+  &__button {
+    height: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    outline: none;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+}

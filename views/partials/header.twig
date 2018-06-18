@@ -1,0 +1,10 @@
+<header class="header">
+<a class="header__logo" href="{{function('home_url')}}">Pokédex</a>
+<form id="js-form" class="search" method="get" action="">
+      <div class="search__wrapper">
+          <input type="text" id="js-search-input" class="search__terms" name="s" placeholder="Search by name...">
+          <input type="hidden" name="post_type" value="pokemon">
+          <button type="submit" id="js-submit" class="search__button"><img src="{{function('get_stylesheet_directory_uri')}}/dist/images/search.svg" alt="Search icon"/></button>
+      </div>
+  </form>
+</header>

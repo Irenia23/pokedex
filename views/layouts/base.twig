@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+  <head>
+        <title>My Pokedex Page</title>
+        <meta charset="utf-8">
+        {# <link rel="stylesheet" type="text/css" href="{{theme.link}}/style.css"> #}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{function('wp_head')}}
+        <script type="text/javascript" src="{{function('get_stylesheet_directory_uri')}}/dist/scripts/main.js"></script>
+  </head>
+  <body>
+        <div class="container">
+            {% block header %}{% endblock %}
+        <div class="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+            {% block footer %}{% endblock %}
+        </div>
+  </body>
+  </html>

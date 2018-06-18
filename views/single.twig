@@ -1,0 +1,44 @@
+{% extends "layouts/base.twig" %}
+{% block header %}{% include 'partials/header.twig' %}
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+      <div class="grid__item one-quarter">
+        <article class="card">
+          {% if post.thumbnail %}
+              {% set image = TimberImage(post.thumbnail) %}
+          {% endif %}
+          <img class="card__img" src='{{image.src}}' alt="{{image.alt}}">
+          <div class="card__info">
+            <h2 class="card__title">{{post.title}}</h2>
+            <p class="card__id js-id-pokemon" data-id="{{ post.id_pokemon }}">#00{{ post.id_pokemon }}</p>
+          </div>
+          {% set taxonomies = function('wp_get_post_terms', post.ID, 'types') %}
+          <ul class="card__types">
+              {% for taxonomy in taxonomies %}
+                <li>{{taxonomy.name}}</li>
+              {% endfor %}
+          </ul>
+        </article>
+      </div><div class="grid__item three-quarters">
+        <section class="info">
+          <ul class="info__tabs">
+            <li class="tab-active js-tab-stats">Stats</li>
+            <li class="js-tab-abilities">Abilities</li>
+            <li class="js-tab-effect">Type Effectiveness</li>
+          </ul>
+          <div class="info__content js-stats">
+          </div>
+          <div class="info__content js-abilities">
+          </div>
+          <div class="info__content js-types">
+          </div>
+        </section>
+      </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{% include 'partials/footer.twig' %}
+{% endblock %}

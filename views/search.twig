@@ -1,0 +1,36 @@
+{% extends 'layouts/base.twig' %}
+{% block header %}
+    {% include 'partials/header.twig' %}
+{% endblock %}
+
+{% block content %}
+        <h2>{{__('Search results')}}</h2>
+        <div class="grid">
+            {% for post in posts %}<div class="grid__item one-quarter">
+                <a href="{{post.guid}}">
+                    <article class="card">
+                        {% set post_thumbnail = function('get_the_post_thumbnail_url', post.ID) %}
+                        {% if post_thumbnail %}
+                            <img class="card__img" src="{{post_thumbnail}}" alt="{{post.title}}"/>
+                        {% endif %}
+                        <div class="card__info">
+                            <h2>{{ post.post_title }}</h2>
+                        <p>#00{{ post.id_pokemon }}</p>
+                        </div>
+                        {% set taxonomies = function('wp_get_post_terms', post.ID, 'types') %}
+                        <ul class="card__types">
+                            {% for taxonomy in taxonomies %}
+                            <li>{{taxonomy.name}}</li>
+                            {% endfor %}
+                        </ul>
+                    </article>
+                </a>
+            {% else %}
+                <p>{{__('No results found')}}</p>
+            </div>{% endfor %}
+        </div
+{% endblock %}
+
+{% block footer %}
+    {% include 'partials/footer.twig' %}
+{% endblock %}
